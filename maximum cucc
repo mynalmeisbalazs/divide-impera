@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int maximum(int jobbindex , int balindex , int tomb[]){
+if(jobbindex==balindex){return tomb[jobbindex] ;}
+int kozep = (jobbindex + balindex)/2;
+int max1=maximum(balindex , kozep , tomb);
+int max2 = maximum(kozep+1 , jobbindex , tomb );
+if(max1>max2){
+    return max1;
+}else{
+return max2;
+}
+}
+
+int main()
+{
+int tomb[4]= {3 , 6, 8 ,4};
+cout << maximum( 0 , 3 , tomb);
+}
